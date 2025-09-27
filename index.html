@@ -77,7 +77,7 @@
       .gallery{grid-template-columns:repeat(2,1fr)}
       .menu{display:inline-flex;border:1px solid #e2e8f0;border-radius:10px;padding:8px;background:#fff}
       .nav a{display:none}
-      nav.open a{display:inline-flex;margin:8px 12px 0 0}
+      
     }
   
 /* Videos */
@@ -112,6 +112,28 @@ img, video{max-width:100%;height:auto;display:block}
   .nav{position:relative}
   nav.open{position:absolute;top:56px;right:12px;background:#fff;padding:12px;border-radius:12px;box-shadow:var(--shadow-sm);z-index:60;display:flex;flex-direction:column}
   nav.open a{display:block;margin:8px 0;color:var(--bg)}
+}
+  
+
+/* Fixed Mobile Menu Dropdown */
+@media (max-width:900px){
+  nav.open {
+    position:absolute;
+    top:56px;
+    right:12px;
+    background:#fff;
+    padding:12px;
+    border-radius:12px;
+    box-shadow:var(--shadow-sm);
+    z-index:60;
+    display:flex;
+    flex-direction:column;
+  }
+  nav.open a {
+    display:block;
+    margin:8px 0;
+    color:var(--bg);
+  }
 }
   </style>
   <meta content="no-cache, no-store, must-revalidate" http-equiv="cache-control"/>
@@ -169,7 +191,7 @@ img, video{max-width:100%;height:auto;display:block}
       </div>
      </div>
      <div class="about-photo">
-      <img alt="Anne Anish portrait" loading="lazy" src="pic11.jpg?v=6" style="border-radius:18px; max-width:100%; height:auto; object-fit:contain;"/>
+      <img alt="Anne Anish portrait" loading="lazy" src="pic11.jpg?v=7" style="border-radius:18px; max-width:100%; height:auto; object-fit:contain;"/>
      </div>
     </div>
    </section>
@@ -430,22 +452,22 @@ AAP leaders Annie Anish, Sheetal Kandelkar, Vikas Chavan, and Shankar Thorat, al
       <div class="videos-grid">
        <figure>
         <video controls="True">
-         <source src="video1.mp4?v=6" type="video/mp4"/>
+         <source src="video1.mp4?v=7" type="video/mp4"/>
         </video>
        </figure>
        <figure>
         <video controls="True">
-         <source src="video2.mp4?v=6" type="video/mp4"/>
+         <source src="video2.mp4?v=7" type="video/mp4"/>
         </video>
        </figure>
        <figure>
         <video controls="True">
-         <source src="video3.mp4?v=6" type="video/mp4"/>
+         <source src="video3.mp4?v=7" type="video/mp4"/>
         </video>
        </figure>
        <figure>
         <video controls="True">
-         <source src="video4.mp4?v=6" type="video/mp4"/>
+         <source src="video4.mp4?v=7" type="video/mp4"/>
         </video>
        </figure>
       </div>
@@ -460,31 +482,31 @@ AAP leaders Annie Anish, Sheetal Kandelkar, Vikas Chavan, and Shankar Thorat, al
      <div class="gallery" id="grid">
       <!-- Replace src with your own images; these are unsplash demo URLs -->
       <figure>
-       <img alt="Community event" loading="lazy" src="pic7.jpg?v=6"/>
+       <img alt="Community event" loading="lazy" src="pic7.jpg?v=7"/>
       </figure>
       <figure>
-       <img alt="Residents meeting" loading="lazy" src="pic1.jpg?v=6"/>
+       <img alt="Residents meeting" loading="lazy" src="pic1.jpg?v=7"/>
       </figure>
       <figure>
-       <img alt="Clean-up drive" loading="lazy" src="pic2.jpg?v=6"/>
+       <img alt="Clean-up drive" loading="lazy" src="pic2.jpg?v=7"/>
       </figure>
       <figure>
-       <img alt="Workshop" loading="lazy" src="pic3.jpg?v=6"/>
+       <img alt="Workshop" loading="lazy" src="pic3.jpg?v=7"/>
       </figure>
       <figure>
-       <img alt="Lighting inspection" loading="lazy" src="pic4.jpg?v=6"/>
+       <img alt="Lighting inspection" loading="lazy" src="pic4.jpg?v=7"/>
       </figure>
       <figure>
-       <img alt="Press briefing" loading="lazy" src="pic5.jpg?v=6"/>
+       <img alt="Press briefing" loading="lazy" src="pic5.jpg?v=7"/>
       </figure>
       <figure>
-       <img alt="School outreach" loading="lazy" src="pic6.jpg?v=6"/>
+       <img alt="School outreach" loading="lazy" src="pic6.jpg?v=7"/>
       </figure>
       <figure>
-       <img alt="Community hall" loading="lazy" src="pic8.jpg?v=6"/>
+       <img alt="Community hall" loading="lazy" src="pic8.jpg?v=7"/>
       </figure>
       <figure>
-       <img alt="Community hall" loading="lazy" src="pic10.jpg?v=6"/>
+       <img alt="Community hall" loading="lazy" src="pic10.jpg?v=7"/>
       </figure>
      </div>
     </div>
@@ -569,3 +591,4 @@ function closeVideoLightbox(){
   </script>
  </body>
 </html>
+
