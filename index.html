@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Anne Anish — Campaign
+  </title>
+  <meta content="Official page of a budding politician. About, contact, social activities, and gallery." name="description"/>
+  <meta content="#0a3b7a" name="theme-color"/>
+  <style>
+   :root{
+      --bg:#0a3b7a; --bg-2:#0e4a9b; --fg:#0b1b2b; --muted:#5c6b7a; --paper:#fff; --tone:#f4f7fb; --accent:#f2b705;
+      --radius:18px; --radius-sm:12px; --shadow:0 10px 30px rgba(0,0,0,.08); --shadow-sm:0 6px 18px rgba(0,0,0,.06);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;color:var(--fg);background:linear-gradient(180deg,var(--tone),#fff)}
+    a{color:var(--bg);text-decoration:none}
+    .container{width:min(1100px,92%);margin:0 auto}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(140%) blur(10px);box-shadow:var(--shadow-sm)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:40px;height:40px;border-radius:50%;background:conic-gradient(from 180deg at 50% 50%, var(--accent), #ffdd66, var(--bg) 80%);display:grid;place-items:center;color:#fff;font-weight:800;box-shadow:inset 0 2px 6px rgba(0,0,0,.15)}
+    .brand h1{font-size:18px;letter-spacing:.4px;margin:0}
+    .nav a{font-weight:600;margin-left:18px}
+    .menu{display:none}
+
+    /* Hero */
+    .hero{padding:48px 0 18px}
+    .hero-card{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+    .hero h2{margin:0 0 8px;font-size:34px}
+    .hero p{margin:0 0 16px;color:var(--muted)}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:12px 18px;border:2px solid var(--bg);background:var(--bg);color:#fff;font-weight:700}
+    .btn.ghost{background:#fff;color:var(--bg)}
+
+    /* Sections */
+    section{padding:36px 0}
+    section h3{font-size:26px;margin:0 0 12px}
+    .card{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+
+    /* About */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .about-photo{aspect-ratio:4/3;border-radius:var(--radius);background:#dfe8f6 
+     <img alt="Community event" loading="lazy" src="pic11.jpg"/> center/cover no-repeat}
+
+    /* Social activities */
+    .timeline{display:grid;gap:16px}
+    .timeline .item{display:grid;grid-template-columns:80px 1fr;gap:16px;align-items:start}
+    .dot{width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(242,183,5,.25)}
+    .date{font-weight:700;color:var(--bg)}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .contact-grid .card p{margin:6px 0}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:#f0f4fb;border:1px solid #e1e8f5;margin:6px 6px 0 0}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .gallery figure{margin:0;position:relative;overflow:hidden;border-radius:14px;box-shadow:var(--shadow-sm)}
+    .gallery img{width:100%;height:100%;display:block;object-fit:cover;aspect-ratio:1/1;transition:transform .4s ease}
+    .gallery figure:hover img{transform:scale(1.05)}
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:min(92vw,1100px);max-height:86vh;border-radius:12px}
+    .lightbox button{position:fixed;top:16px;right:16px;padding:10px 14px;border-radius:999px;border:none;font-weight:800}
+
+    /* Footer */
+    footer{padding:24px 0;color:#38506b}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero-card{grid-template-columns:1fr}
+      .about-grid,.contact-grid{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .menu{display:inline-flex;border:1px solid #e2e8f0;border-radius:10px;padding:8px;background:#fff}
+      .nav a{display:none}
+      nav.open a{display:inline-flex;margin:8px 12px 0 0}
+    }
+  </style>
+ </head>
+ <body>
+  <header>
+   <div class="container nav">
+    <div class="brand">
+     <div aria-hidden="true" class="logo">
+      AA
+     </div>
+     <h1>
+      Anne Anish
+     </h1>
+    </div>
+    <nav id="nav">
+     <a href="#about">
+      About
+     </a>
+     <a href="#contact">
+      Contact
+     </a>
+     <a href="#activities">
+      Social Activities
+     </a>
+     <a href="#gallery">
+      Gallery
+     </a>
+    </nav>
+    <button aria-label="Menu" class="menu" onclick="document.getElementById('nav').classList.toggle('open')">
+     ☰
+    </button>
+   </div>
+  </header>
+  <main>
+   <!-- HERO -->
+   <section class="hero">
+    <div class="container hero-card">
+     <div>
+      <h2>
+       A New Voice for Our Ward
+      </h2>
+      <p>
+       Anne Anish – A Voice for the People, A Vision for the Future.
+      </p>
+      <div class="cta">
+       <a class="btn" href="#contact">
+        Get in touch
+       </a>
+       <a class="btn ghost" href="#activities">
+        See recent work
+       </a>
+      </div>
+     </div>
+     <div class="about-photo">
+       <img src="pic11.jpg" alt="Anne Anish portrait" style="width:50%; border-radius:18px;" loading="lazy"/>
+     </div>
+
+     </div>
+    </div>
+   </section>
+   <!-- ABOUT -->
+   <section id="about">
+    <div class="container about-grid">
+     <article class="card">
+      <h3>
+       About me
+      </h3>
+      <p>
+       <strong>
+        Anne Anish
+       </strong>
+       is a dedicated community leader, reformist, and passionate advocate for people-centric development. With years of active involvement in local initiatives, she has consistently stood for transparency, accountability, and inclusivity in governance.
+
+Having survived a life-threatening health challenge, Anne considers this her second life — one she has chosen to dedicate fully in service of people. Guided by her deep faith and sense of purpose, she embraces the philosophy of servant leadership, where true leadership means listening, caring, and working alongside the community.
+
+Education is at the heart of her vision. Anne firmly believes that every child deserves access to quality education, and she tirelessly works so that no child is left behind. For her, empowering children through learning is the strongest foundation for a better tomorrow.
+
+Beyond education, Anne actively supports good causes and reform initiatives that strengthen society. Whether it is championing environmental protection, promoting women’s empowerment, or standing for social justice, she believes in progressive change that benefits all.
+
+As she steps forward for the upcoming corporation election, Anne envisions a city where sustainable growth, quality education, better civic amenities, and stronger community participation go hand in hand. Her commitment is not just to lead but to listen, to build bridges, and to work tirelessly for the welfare of all.
+
+Anne Anish – A Voice for the People, A Vision for the Future.
+      </p>
+      <p>
+       Key priorities include:
+       <ul>
+        <li>
+         Ward‑wise cleanliness with daily door‑to‑door waste collection
+        </li>
+        <li>
+         Street lighting, safer crossings, and CCTV at hotspots
+        </li>
+        <li>
+         Skill training &amp; job fairs with focus on women and youth
+        </li>
+       </ul>
+      </p>
+      <p>
+       Anne believes in transparent, accountable governance with regular ward meetings and public dashboards.
+      </p>
+     </article>
+     <aside class="card">
+      <h3>
+       Quick facts
+      </h3>
+      <p>
+       • Education: B.Com.(Mumbai University), Certified Image Consultant - ICBI, International Certified Trainer - SQA (Scotland), Train the Trainer - NABET QCI (India), Master NLP Practitioner &amp; Trainer, Certified Leadership &amp; Life Coach, POSH Enabler (Workplace Safety), POCSO Torchbearer (Child Protection Advocate)
+      </p>
+      <p>
+       • Languages: Marathi, Hindi, English, Malayalam
+      </p>
+      <p>
+       <em>
+        LIMCA Book of Records National Record holder
+       </em>
+      </p>
+      <p>
+       • Priotities:
+				1. Clean &amp; Green Ward🌳
+– Zero-garbage streets, efficient waste management, more trees, and pollution-free environment.
+
+
+2. Better Roads &amp; Footpaths 🛣
+– Well-maintained internal roads, pothole-free streets, and safe walkways for pedestrians.
+
+
+3. Safe &amp; Reliable Water Supply 🚰
+– Access to clean drinking water and proper drainage systems to prevent flooding.
+
+
+4. Women &amp; Child Safety First🛡
+– More CCTV surveillance, well-lit public spaces, and awareness programs on safety and protection.
+
+
+5. Quality Education for Every Child🎓
+– Support for schools, digital learning access, scholarships, and skill-building programs.
+
+
+6. Youth Empowerment 💡
+– Vocational training, sports facilities, and entrepreneurship support for young people.
+
+
+7. Healthcare for All 🏥
+– Regular health camps, vaccination drives, and special care initiatives for senior citizens.
+
+
+8. Better Public Amenities 🏞
+– Clean parks, upgraded community halls, safe playgrounds, and public toilets.
+
+
+9. Transparent &amp; Accessible Governance 🤝
+– Monthly ward meetings, open communication channels, and quick grievance redressal.
+
+
+10. People’s Participation in Development🗳
+– Encouraging residents’ involvement in decision-making to ensure inclusive growth.
+      </p>
+     </aside>
+    </div>
+   </section>
+   <!-- CONTACT -->
+   <section id="contact">
+    <div class="container contact-grid">
+     <div class="card">
+      <h3>
+       Contact details
+      </h3>
+      <p>
+       📞 Phone:
+       <a href="tel:+919867690823">
+       </a>
+      </p>
+      <p>
+       ✉️ Email:
+       <a href="mailto:kenshoanne23@gmail.com">
+        hello@anneanish.in
+       </a>
+      </p>
+      #
+      <p>
+       📍 Ward Office: Royal Heights, Bhau Patil Road, Khadki, Pune
+      </p>
+      <div>
+       <span class="chip">
+        WhatsApp: +919867690823
+       </span>
+       <span class="chip">
+        Facebook: https://www.facebook.com/anne.anish/
+       </span>
+       <span class="chip">
+        Instagram: https://www.threads.com/@anne.anish?xmt=AQF0EGUiLHmnSQpq75WSbcby9OFTXn_H_9UZ0L5NtB8vuZk
+       </span>
+       <span class="chip">
+        X (Twitter): @https://x.com/AnneAnish
+       </span>
+      </div>
+     </div>
+     <div class="card">
+      <h3>
+       Send a message
+      </h3>
+      <form onsubmit="event.preventDefault(); alert('Thanks! Your message was noted. Replace this with a real form backend later.');">
+       <label>
+        Name
+        <br/>
+        <input placeholder="Your name" style="width:100%;padding:12px;border-radius:10px;border:1px solid #d7dfeb" type="text"/>
+       </label>
+       <br/>
+       <br/>
+       <label>
+        Email
+        <br/>
+        <input placeholder="name@example.com" style="width:100%;padding:12px;border-radius:10px;border:1px solid #d7dfeb" type="email"/>
+       </label>
+       <br/>
+       <br/>
+       <label>
+        Message
+        <br/>
+        <textarea placeholder="How can we help?" rows="4" style="width:100%;padding:12px;border-radius:10px;border:1px solid #d7dfeb"></textarea>
+       </label>
+       <br/>
+       <br/>
+       <button class="btn" type="submit">
+        Send
+       </button>
+      </form>
+      <p style="color:var(--muted);margin-top:8px">
+       Tip: Swap this demo form with a Google Form or Formspree endpoint for zero‑backend setup.
+      </p>
+     </div>
+    </div>
+   </section>
+   <!-- SOCIAL ACTIVITIES -->
+   <section id="activities">
+    <div class="container">
+     <h3>
+      Social activities undertaken
+     </h3>
+     <div class="timeline">
+      <div class="item card">
+       <div>
+        <div aria-hidden="true" class="dot">
+        </div>
+       </div>
+       <div>
+        <div class="date">
+         14 July 2025 — Clean‑up Drive
+        </div>
+        <p>
+         AAP’s Follow-up Gets New Teacher for Bopodi School
+
+Bopodi, Pune: Due to Aam Aadmi Party’s consistent follow-up, Patasibai Chhajed E-Learning English Medium School in Bopodi has finally received a new teacher after facing shortages since last year.
+
+Last year, 40 nursery students were promoted to Class 1, but lack of teachers forced 25 parents to withdraw admissions. Parents approached AAP, which raised the issue with the Pune Municipal Corporation. With a new teacher now appointed, several parents are planning to re-enroll their children.
+
+AAP leaders Annie Anish, Sheetal Kandelkar, Vikas Chavan, and Shankar Thorat, along with parents, had met PMC officials to press for action. AAP has further demanded that the PMC urgently provide adequate teachers in civic schools to ensure quality education for children from underprivileged families
+        </p>
+       </div>
+      </div>
+      <div class="item card">
+       <div>
+        <div class="dot">
+        </div>
+       </div>
+       <div>
+        <div class="date">
+         June 2025 — Safety Audit
+        </div>
+        <p>
+         Mapped 37 dark spots; submitted lighting plan and secured approvals for 28 LED street lights.
+        </p>
+       </div>
+      </div>
+      <div class="item card">
+       <div>
+        <div class="dot">
+        </div>
+       </div>
+       <div>
+        <div class="date">
+         May 2025 — Skill Camp
+        </div>
+        <p>
+         Hosted a two‑day skill workshop with local businesses; 56 registrations for tailoring and basic IT courses.
+        </p>
+       </div>
+      </div>
+      <p style="color:var(--muted);margin:6px 0 0">
+       Replace dates and text with your real activities. Add more blocks as needed.
+      </p>
+     </div>
+    </div>
+   </section>
+   <!-- GALLERY -->
+   <section id="gallery">
+    <div class="container">
+     <h3>
+      Picture gallery
+     </h3>
+     <div class="gallery" id="grid">
+      <!-- Replace src with your own images; these are unsplash demo URLs -->
+      <figure>
+       <img alt="Community event" loading="lazy" src="pic7.jpg"/>
+      </figure>
+      <figure>
+       <img alt="Residents meeting" loading="lazy" src="pic1.jpg"/>
+      </figure>
+      <figure>
+       <img alt="Clean-up drive" loading="lazy" src="pic2.jpg"/>
+      </figure>
+      <figure>
+       <img alt="Workshop" loading="lazy" src="pic3.jpg"/>
+      </figure>
+      <figure>
+       <img alt="Lighting inspection" loading="lazy" src="pic4.jpg"/>
+      </figure>
+      <figure>
+       <img alt="Press briefing" loading="lazy" src="pic5.jpg"/>
+      </figure>
+      <figure>
+       <img alt="School outreach" loading="lazy" src="pic6.jpg"/>
+      </figure>
+      <figure>
+       <img alt="Community hall" loading="lazy" src="pic8.jpg"/>
+      </figure>
+      <figure>
+       <img alt="Community hall" loading="lazy" src="pic10.jpg"/>
+      </figure>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="container">
+    <small>
+     © 2025 Anne Anish Campaign. Built without templates. All rights reserved.
+    </small>
+   </div>
+  </footer>
+  <div aria-hidden="true" aria-label="Image preview" class="lightbox" id="lightbox" role="dialog">
+   <button onclick="closeLightbox()">
+    Close ×
+   </button>
+   <img alt="Preview" id="lightboxImg"/>
+  </div>
+  <script>
+   // Lightweight gallery lightbox
+    const grid = document.getElementById('grid');
+    const box = document.getElementById('lightbox');
+    const img = document.getElementById('lightboxImg');
+    grid.addEventListener('click', e => {
+      const el = e.target.closest('img');
+      if(!el) return;
+      img.src = el.src;
+      box.classList.add('open');
+      box.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    });
+    function closeLightbox(){
+      box.classList.remove('open');
+      box.setAttribute('aria-hidden','true');
+      document.body.style.overflow='auto';
+    }
+    box.addEventListener('click', e=>{ if(e.target===box) closeLightbox(); });
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLightbox(); });
+  </script>
+ </body>
+</html>
