@@ -135,6 +135,16 @@ img, video{max-width:100%;height:auto;display:block}
     color:var(--bg);
   }
 }
+  
+
+/* Mobile nav: hide native nav and show dropdown when open */
+@media (max-width:900px){
+  #nav{display:none; position:static;}
+  #nav.open{display:flex; flex-direction:column; position:absolute; top:56px; right:12px; background:#fff; padding:12px; border-radius:12px; box-shadow:var(--shadow-sm); z-index:60;}
+  #nav.open a{display:block; margin:8px 0; color:var(--bg);}
+  /* ensure nav links are hidden by default */
+  #nav a{display:none;}
+}
   </style>
   <meta content="no-cache, no-store, must-revalidate" http-equiv="cache-control"/>
   <meta content="no-cache" http-equiv="pragma"/>
@@ -165,7 +175,7 @@ img, video{max-width:100%;height:auto;display:block}
       Gallery
      </a>
     </nav>
-    <button aria-label="Menu" class="menu" onclick="document.getElementById('nav').classList.toggle('open')">
+    <button aria-controls="nav" aria-expanded="false" aria-label="Menu" class="menu" id="menuBtn">
      ☰
     </button>
    </div>
@@ -191,7 +201,7 @@ img, video{max-width:100%;height:auto;display:block}
       </div>
      </div>
      <div class="about-photo">
-      <img alt="Anne Anish portrait" loading="lazy" src="pic11.jpg?v=7" style="border-radius:18px; max-width:100%; height:auto; object-fit:contain;"/>
+      <img alt="Anne Anish portrait" loading="lazy" src="pic11.jpg?v=8" style="border-radius:18px; max-width:100%; height:auto; object-fit:contain;"/>
      </div>
     </div>
    </section>
@@ -452,22 +462,22 @@ AAP leaders Annie Anish, Sheetal Kandelkar, Vikas Chavan, and Shankar Thorat, al
       <div class="videos-grid">
        <figure>
         <video controls="True">
-         <source src="video1.mp4?v=7" type="video/mp4"/>
+         <source src="video1.mp4?v=8" type="video/mp4"/>
         </video>
        </figure>
        <figure>
         <video controls="True">
-         <source src="video2.mp4?v=7" type="video/mp4"/>
+         <source src="video2.mp4?v=8" type="video/mp4"/>
         </video>
        </figure>
        <figure>
         <video controls="True">
-         <source src="video3.mp4?v=7" type="video/mp4"/>
+         <source src="video3.mp4?v=8" type="video/mp4"/>
         </video>
        </figure>
        <figure>
         <video controls="True">
-         <source src="video4.mp4?v=7" type="video/mp4"/>
+         <source src="video4.mp4?v=8" type="video/mp4"/>
         </video>
        </figure>
       </div>
@@ -482,31 +492,31 @@ AAP leaders Annie Anish, Sheetal Kandelkar, Vikas Chavan, and Shankar Thorat, al
      <div class="gallery" id="grid">
       <!-- Replace src with your own images; these are unsplash demo URLs -->
       <figure>
-       <img alt="Community event" loading="lazy" src="pic7.jpg?v=7"/>
+       <img alt="Community event" loading="lazy" src="pic7.jpg?v=8"/>
       </figure>
       <figure>
-       <img alt="Residents meeting" loading="lazy" src="pic1.jpg?v=7"/>
+       <img alt="Residents meeting" loading="lazy" src="pic1.jpg?v=8"/>
       </figure>
       <figure>
-       <img alt="Clean-up drive" loading="lazy" src="pic2.jpg?v=7"/>
+       <img alt="Clean-up drive" loading="lazy" src="pic2.jpg?v=8"/>
       </figure>
       <figure>
-       <img alt="Workshop" loading="lazy" src="pic3.jpg?v=7"/>
+       <img alt="Workshop" loading="lazy" src="pic3.jpg?v=8"/>
       </figure>
       <figure>
-       <img alt="Lighting inspection" loading="lazy" src="pic4.jpg?v=7"/>
+       <img alt="Lighting inspection" loading="lazy" src="pic4.jpg?v=8"/>
       </figure>
       <figure>
-       <img alt="Press briefing" loading="lazy" src="pic5.jpg?v=7"/>
+       <img alt="Press briefing" loading="lazy" src="pic5.jpg?v=8"/>
       </figure>
       <figure>
-       <img alt="School outreach" loading="lazy" src="pic6.jpg?v=7"/>
+       <img alt="School outreach" loading="lazy" src="pic6.jpg?v=8"/>
       </figure>
       <figure>
-       <img alt="Community hall" loading="lazy" src="pic8.jpg?v=7"/>
+       <img alt="Community hall" loading="lazy" src="pic8.jpg?v=8"/>
       </figure>
       <figure>
-       <img alt="Community hall" loading="lazy" src="pic10.jpg?v=7"/>
+       <img alt="Community hall" loading="lazy" src="pic10.jpg?v=8"/>
       </figure>
      </div>
     </div>
@@ -589,6 +599,37 @@ function closeVideoLightbox(){
   if(vbox){ vbox.style.display = 'none'; vbox.setAttribute('aria-hidden','true'); document.body.style.overflow = 'auto'; }
 }
   </script>
+  <script>
+   document.addEventListener('DOMContentLoaded', function(){
+  const nav = document.getElementById('nav');
+  const menuBtn = document.getElementById('menuBtn');
+  function toggleMenu(){
+    if(!nav) return;
+    nav.classList.toggle('open');
+    const expanded = nav.classList.contains('open');
+    if(menuBtn) menuBtn.setAttribute('aria-expanded', expanded?'true':'false');
+  }
+  if(menuBtn) menuBtn.addEventListener('click', toggleMenu);
+  // close when clicking outside
+  document.addEventListener('click', function(e){
+    if(!nav || !menuBtn) return;
+    if(nav.classList.contains('open') && !nav.contains(e.target) && !menuBtn.contains(e.target)){
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+    }
+  });
+  // close on escape
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && nav && nav.classList.contains('open')){
+      nav.classList.remove('open');
+      if(menuBtn) menuBtn.setAttribute('aria-expanded','false');
+    }
+  });
+  // ensure nav links close menu when clicked (mobile)
+  if(nav){
+    nav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{ if(nav.classList.contains('open')){ nav.classList.remove('open'); if(menuBtn) menuBtn.setAttribute('aria-expanded','false'); }}));
+  }
+});
+  </script>
  </body>
 </html>
-
