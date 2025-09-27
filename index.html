@@ -43,10 +43,10 @@
 
     /* About */
     .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-    .about-photo{aspect-ratio:4/3;border-radius:var(--radius);background:#dfe8f6 
-     <img alt="Community event" loading="lazy" src="pic11.jpg"/> center/cover no-repeat}
+    .about-photo{aspect-ratio:4/3;border-radius:var(--radius);background:#dfe8f6;overflow:hidden;display:block}
+.about-photo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius);}
 
-    /* Social activities */
+/* Social activities */
     .timeline{display:grid;gap:16px}
     .timeline .item{display:grid;grid-template-columns:80px 1fr;gap:16px;align-items:start}
     .dot{width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(242,183,5,.25)}
@@ -79,6 +79,30 @@
       .nav a{display:none}
       nav.open a{display:inline-flex;margin:8px 12px 0 0}
     }
+  
+/* Videos */
+.videos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:start}
+.videos-grid figure{margin:0;overflow:hidden;border-radius:12px;background:#000;box-shadow:var(--shadow-sm);padding:6px}
+.videos-grid video{width:100%;height:auto;display:block;border-radius:8px}
+
+/* Make images and embeds responsive */
+img, video{max-width:100%;height:auto;display:block}
+
+/* Slight tweaks for small screens */
+@media (max-width:600px){
+  .hero h2{font-size:22px}
+  .hero p{font-size:14px}
+  .nav a{display:none}
+  .videos-grid{grid-template-columns:1fr;gap:10px}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .container{width:94%}
+  .brand h1{font-size:16px}
+  section{padding:20px 0}
+}
+@media (min-width:601px) and (max-width:900px){
+  .videos-grid{grid-template-columns:repeat(2,1fr)}
+  .hero h2{font-size:26px}
+}
   </style>
  </head>
  <body>
@@ -132,7 +156,7 @@
       </div>
      </div>
      <div class="about-photo">
-      <img alt="Anne Anish portrait" loading="lazy" src="pic11.jpg" style="width:50%; border-radius:18px;"/>
+      <img alt="Anne Anish portrait" loading="lazy" src="pic11.jpg" style="border-radius:18px"/>
      </div>
     </div>
    </section>
@@ -376,38 +400,30 @@ AAP leaders Annie Anish, Sheetal Kandelkar, Vikas Chavan, and Shankar Thorat, al
      </h3>
      <div class="card">
       <p>
-       <code>
-        video1.mp4
-       </code>
+       Sample videos below. Upload files named video1.mp4, video2.mp4, video3.mp4 and video4.mp4 to the site folder.
       </p>
-      <video controls="" style="width:15%;max-height:560px;border-radius:12px;background:#000">
-       <source src="video1.mp4" type="video/mp4"/>
-       Your browser does not support the video tag.
-      </video>
-      <video controls="" style="width:30%;max-height:560px;border-radius:12px;background:#000; margin-top:12px;">
-       <source src="video2.mp4" type="video/mp4"/>
-       Your browser does not support the video tag.
-      </video>
-      <video controls="" style="width:30%;max-height:560px;border-radius:12px;background:#000; margin-top:12px;">
-       <source src="video3.mp4" type="video/mp4"/>
-       Your browser does not support the video tag.
-      </video>
-      <video controls="" style="width:25%;max-height:560px;border-radius:12px;background:#000; margin-top:12px;">
-       <source src="video4.mp4" type="video/mp4"/>
-       Your browser does not support the video tag.
-      </video>
-      <video controls="" style="width:15%;max-height:560px;border-radius:12px;background:#000">
-       <source src="video5.mp4" type="video/mp4"/>
-       Your browser does not support the video tag.
-      </video>
-      <video controls="" style="width:15%;max-height:560px;border-radius:12px;background:#000">
-       <source src="video6.mp4" type="video/mp4"/>
-       Your browser does not support the video tag.
-      </video>
-      <video controls="" style="width:15%;max-height:560px;border-radius:12px;background:#000">
-       <source src="video7.mp4" type="video/mp4"/>
-       Your browser does not support the video tag.
-      </video>
+      <div class="videos-grid">
+       <figure>
+        <video controls="True">
+         <source src="video1.mp4" type="video/mp4"/>
+        </video>
+       </figure>
+       <figure>
+        <video controls="True">
+         <source src="video2.mp4" type="video/mp4"/>
+        </video>
+       </figure>
+       <figure>
+        <video controls="True">
+         <source src="video3.mp4" type="video/mp4"/>
+        </video>
+       </figure>
+       <figure>
+        <video controls="True">
+         <source src="video4.mp4" type="video/mp4"/>
+        </video>
+       </figure>
+      </div>
      </div>
     </div>
    </section>
