@@ -192,6 +192,19 @@ img, video{max-width:100%;height:auto;display:block}
   color:#556677;
   margin-top:6px;
 }
+  
+
+/* Mobile menu fixes */
+@media (max-width:900px){
+  nav#mainNav { display: none !important; }
+  .menuBtn { display: inline-flex !important; cursor: pointer; background:transparent; border:none; font-size:22px; padding:8px; border-radius:8px; }
+  .menuPanel { display:none; }
+  .menuPanel.open { display:block !important; }
+}
+@media (min-width:901px){
+  .menuBtn { display:none !important; }
+  .menuPanel { display:none !important; }
+}
   </style>
   <meta content="no-cache, no-store, must-revalidate" http-equiv="cache-control"/>
   <meta content="no-cache" http-equiv="pragma"/>
@@ -222,7 +235,7 @@ img, video{max-width:100%;height:auto;display:block}
       Gallery
      </a>
     </nav>
-    <button aria-controls="nav" aria-expanded="false" aria-label="Menu" class="menu" id="menuBtn">
+    <button aria-controls="menuPanel" aria-expanded="false" aria-label="Menu" class="menu" id="menuBtn">
      ☰
     </button>
    </div>
@@ -740,6 +753,51 @@ function closeVideoLightbox(){
     nav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{ if(nav.classList.contains('open')){ nav.classList.remove('open'); if(menuBtn) menuBtn.setAttribute('aria-expanded','false'); }}));
   }
 });
+  </script>
+  <script>
+   // Robust mobile menu toggle
+(function(){
+  function toggleMenuPanel(){
+    var btn = document.getElementById('menuBtn');
+    var panel = document.getElementById('menuPanel');
+    if(!panel || !btn) return;
+    panel.classList.toggle('open');
+    var isOpen = panel.classList.contains('open');
+    panel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+  }
+  window.closeMenuPanel = function(){
+    var panel = document.getElementById('menuPanel');
+    var btn = document.getElementById('menuBtn');
+    if(panel && panel.classList.contains('open')){
+      panel.classList.remove('open');
+      panel.setAttribute('aria-hidden','true');
+      if(btn) btn.setAttribute('aria-expanded','false');
+      document.body.style.overflow = 'auto';
+    }
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    var btn = document.getElementById('menuBtn');
+    var panel = document.getElementById('menuPanel');
+    if(btn) btn.addEventListener('click', function(e){ e.stopPropagation(); toggleMenuPanel(); });
+    // close when clicking outside
+    document.addEventListener('click', function(e){
+      if(!panel) return;
+      if(panel.classList.contains('open') && !panel.contains(e.target) && e.target.id !== 'menuBtn'){
+        closeMenuPanel();
+      }
+    });
+    // close on Escape
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeMenuPanel();
+    });
+    // ensure links inside panel close it on click
+    if(panel){
+      panel.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ closeMenuPanel(); }); });
+    }
+  });
+})();
   </script>
  </body>
 </html>
