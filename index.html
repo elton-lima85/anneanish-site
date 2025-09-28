@@ -205,6 +205,26 @@ img, video{max-width:100%;height:auto;display:block}
   .menuBtn { display:none !important; }
   .menuPanel { display:none !important; }
 }
+  
+
+/* Equal priority card heights */
+.aside-prio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;align-items:stretch}
+.aside-prio-grid > div, .prio-card{display:flex;flex-direction:column;justify-content:flex-start;min-height:130px;padding:12px}
+
+/* Section alternation for visual rhythm */
+main > section:nth-of-type(odd){background:#fff}
+main > section:nth-of-type(even){background:#f7fbff}
+
+/* Testimonials background */
+#testimonials{background:#eaf6ff;padding-top:28px;padding-bottom:28px}
+
+/* Caption styling */
+.gallery figcaption, .videos-grid figcaption{font-size:13px;color:#556677;padding-top:6px;text-align:center}
+
+/* Sticky CTA small tweaks */
+#stickyCTA a,#stickyCTA button{box-shadow:0 8px 24px rgba(0,0,0,.08);}
+@media(min-width:900px){ #stickyCTA{right:20px;bottom:20px} }
+@media(max-width:420px){ #stickyCTA a,#stickyCTA button{padding:10px 12px;font-size:14px} }
   </style>
   <meta content="no-cache, no-store, must-revalidate" http-equiv="cache-control"/>
   <meta content="no-cache" http-equiv="pragma"/>
@@ -252,7 +272,7 @@ img, video{max-width:100%;height:auto;display:block}
        A Voice for Our Ward — Dedicated to Cleanliness, Safety, Education, and Better Roads.
       </p>
       <div class="cta">
-       <a class="btn" href="#contact">
+       <a class="btn" href="javascript:void(0)" onclick="openJoinModal()">
         Join Us
        </a>
        <a class="btn ghost" href="#contact">
@@ -261,7 +281,7 @@ img, video{max-width:100%;height:auto;display:block}
       </div>
      </div>
      <div class="about-photo">
-      <img alt="Anne Anish portrait" loading="lazy" src="pic11.jpg?v=9" style="border-radius:18px; max-width:100%; height:auto; object-fit:contain;"/>
+      <img alt="Anne Anish portrait" loading="lazy" src="pic11.webp?v=11" style="border-radius:18px; max-width:100%; height:auto; object-fit:contain;"/>
      </div>
     </div>
    </section>
@@ -552,9 +572,9 @@ AAP leaders Annie Anish, Sheetal Kandelkar, Vikas Chavan, and Shankar Thorat, al
        📍 Ward Office: Royal Heights, Bhau Patil Road, Khadki, Pune
       </p>
       <div>
-       <span class="chip">
-        WhatsApp: +919867690823
-       </span>
+       <a class="chip" href="https://wa.me/919867690823" target="_blank">
+        WhatsApp: +91 9867690823
+       </a>
        <span class="chip">
         <a href="https://www.facebook.com/anne.anish/" target="_blank">
          Facebook
@@ -585,23 +605,35 @@ AAP leaders Annie Anish, Sheetal Kandelkar, Vikas Chavan, and Shankar Thorat, al
       <div class="videos-grid">
        <figure>
         <video controls="True">
-         <source src="video1.mp4?v=9" type="video/mp4"/>
+         <source src="video1.mp4?v=11" type="video/mp4"/>
         </video>
+        <figcaption style="font-size:13px;color:#556677;padding-top:6px;text-align:center">
+         Meeting with residents — June 2025
+        </figcaption>
        </figure>
        <figure>
         <video controls="True">
-         <source src="video2.mp4?v=9" type="video/mp4"/>
+         <source src="video2.mp4?v=11" type="video/mp4"/>
         </video>
+        <figcaption style="font-size:13px;color:#556677;padding-top:6px;text-align:center">
+         Pot the Potholes — July 2025
+        </figcaption>
        </figure>
        <figure>
         <video controls="True">
-         <source src="video3.mp4?v=9" type="video/mp4"/>
+         <source src="video3.mp4?v=11" type="video/mp4"/>
         </video>
+        <figcaption style="font-size:13px;color:#556677;padding-top:6px;text-align:center">
+         Skill Camp highlights — May 2025
+        </figcaption>
        </figure>
        <figure>
         <video controls="True">
-         <source src="video4.mp4?v=9" type="video/mp4"/>
+         <source src="video4.mp4?v=11" type="video/mp4"/>
         </video>
+        <figcaption style="font-size:13px;color:#556677;padding-top:6px;text-align:center">
+         Public Amenities walk — April 2025
+        </figcaption>
        </figure>
       </div>
      </div>
@@ -615,31 +647,58 @@ AAP leaders Annie Anish, Sheetal Kandelkar, Vikas Chavan, and Shankar Thorat, al
      <div class="gallery" id="grid">
       <!-- Replace src with your own images; these are unsplash demo URLs -->
       <figure>
-       <img alt="Community event" loading="lazy" src="pic7.jpg?v=9"/>
+       <img alt="Community event" loading="lazy" src="pic7.webp?v=11"/>
+       <figcaption style="font-size:13px;color:#556677;padding-top:6px;text-align:center">
+        Community event — Photo
+       </figcaption>
       </figure>
       <figure>
-       <img alt="Residents meeting" loading="lazy" src="pic1.jpg?v=9"/>
+       <img alt="Residents meeting" loading="lazy" src="pic1.webp?v=11"/>
+       <figcaption style="font-size:13px;color:#556677;padding-top:6px;text-align:center">
+        Residents meeting — Photo
+       </figcaption>
       </figure>
       <figure>
-       <img alt="Clean-up drive" loading="lazy" src="pic2.jpg?v=9"/>
+       <img alt="Clean-up drive" loading="lazy" src="pic2.webp?v=11"/>
+       <figcaption style="font-size:13px;color:#556677;padding-top:6px;text-align:center">
+        Clean-up drive — Photo
+       </figcaption>
       </figure>
       <figure>
-       <img alt="Workshop" loading="lazy" src="pic3.jpg?v=9"/>
+       <img alt="Workshop" loading="lazy" src="pic3.webp?v=11"/>
+       <figcaption style="font-size:13px;color:#556677;padding-top:6px;text-align:center">
+        Workshop — Photo
+       </figcaption>
       </figure>
       <figure>
-       <img alt="Lighting inspection" loading="lazy" src="pic4.jpg?v=9"/>
+       <img alt="Lighting inspection" loading="lazy" src="pic4.webp?v=11"/>
+       <figcaption style="font-size:13px;color:#556677;padding-top:6px;text-align:center">
+        Lighting inspection — Photo
+       </figcaption>
       </figure>
       <figure>
-       <img alt="Press briefing" loading="lazy" src="pic5.jpg?v=9"/>
+       <img alt="Press briefing" loading="lazy" src="pic5.webp?v=11"/>
+       <figcaption style="font-size:13px;color:#556677;padding-top:6px;text-align:center">
+        Press briefing — Photo
+       </figcaption>
       </figure>
       <figure>
-       <img alt="School outreach" loading="lazy" src="pic6.jpg?v=9"/>
+       <img alt="School outreach" loading="lazy" src="pic6.webp?v=11"/>
+       <figcaption style="font-size:13px;color:#556677;padding-top:6px;text-align:center">
+        School outreach — Photo
+       </figcaption>
       </figure>
       <figure>
-       <img alt="Community hall" loading="lazy" src="pic8.jpg?v=9"/>
+       <img alt="Community hall" loading="lazy" src="pic8.webp?v=11"/>
+       <figcaption style="font-size:13px;color:#556677;padding-top:6px;text-align:center">
+        Community hall — Photo
+       </figcaption>
       </figure>
       <figure>
-       <img alt="Community hall" loading="lazy" src="pic10.jpg?v=9"/>
+       <img alt="Community hall" loading="lazy" src="pic10.webp?v=11"/>
+       <figcaption style="font-size:13px;color:#556677;padding-top:6px;text-align:center">
+        Community hall — Photo
+       </figcaption>
       </figure>
      </div>
     </div>
@@ -798,6 +857,39 @@ function closeVideoLightbox(){
     }
   });
 })();
+  </script>
+  <div id="stickyCTA" style="position:fixed;right:14px;bottom:14px;z-index:120;display:flex;flex-direction:column;gap:10px;align-items:flex-end">
+   <a href="https://wa.me/919867690823" id="whatsappBtn" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;padding:10px 14px;border-radius:999px;box-shadow:0 8px 24px rgba(37,211,102,.14);font-weight:700" target="_blank">
+    <span style="font-size:18px">
+     💬
+    </span>
+    <span>
+     Join Us on WhatsApp
+    </span>
+   </a>
+   <button id="joinFormBtn" style="display:inline-flex;align-items:center;gap:10px;background:#0a3b7a;color:#fff;padding:10px 14px;border-radius:999px;border:none;box-shadow:0 8px 24px rgba(10,59,122,.12);font-weight:700">
+    Volunteer / Join
+   </button>
+  </div>
+  <div id="joinModal" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(0,0,0,.6);z-index:130;padding:20px">
+   <div style="width:min(920px,96%);max-height:90vh;background:#fff;border-radius:12px;overflow:auto;padding:12px;position:relative">
+    <button onclick="closeJoinModal()" style="position:absolute;right:12px;top:12px;border:none;background:#eee;padding:8px;border-radius:8px">
+     Close
+    </button>
+    <h3 style="margin-top:8px">
+     Volunteer / Support — Join Form
+    </h3>
+    <p style="color:#556677">
+     Please fill your details and we will get back to you.
+    </p>
+    <iframe id="joinFormIframe" src="https://forms.gle/9cGCg5eTDar5PUJr5" style="width:100%;height:600px;border:0;border-radius:8px">
+    </iframe>
+   </div>
+  </div>
+  <script>
+   function openJoinModal(){ document.getElementById('joinModal').style.display='flex'; document.body.style.overflow='hidden'; }
+function closeJoinModal(){ document.getElementById('joinModal').style.display='none'; document.body.style.overflow='auto'; }
+document.addEventListener('DOMContentLoaded', function(){ var b=document.getElementById('joinFormBtn'); if(b) b.addEventListener('click', openJoinModal); });
   </script>
  </body>
 </html>
