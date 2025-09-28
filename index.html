@@ -145,6 +145,53 @@ img, video{max-width:100%;height:auto;display:block}
   /* ensure nav links are hidden by default */
   #nav a{display:none;}
 }
+  
+.facts { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 8px; 
+}
+.facts li { 
+  background: #f0f6ff; 
+  border: 1px solid #dbe6f6; 
+  padding: 6px 10px; 
+  border-radius: 999px; 
+  font-size: 14px; 
+  color: #0a3b7a; 
+}
+  
+/* Aside priorities grid (inside Quick Facts) */
+.aside-prio-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
+@media (max-width:640px){ .aside-prio-grid { grid-template-columns:1fr; } }
+  
+/* Facts and Key Priorities separation */
+.facts-box {
+  border: 2px solid #cfdff5;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 14px;
+  background: #f9fbff;
+}
+.priorities-box {
+  border: 2px solid #dbe6f6;
+  border-radius: 10px;
+  padding: 10px;
+  background: #ffffff;
+}
+.prio-card {
+  background:#fff;
+  border:1px solid #eef3fb;
+  padding:8px;
+  border-radius:8px;
+}
+.prio-desc {
+  font-size:13px;
+  color:#556677;
+  margin-top:6px;
+}
   </style>
   <meta content="no-cache, no-store, must-revalidate" http-equiv="cache-control"/>
   <meta content="no-cache" http-equiv="pragma"/>
@@ -186,22 +233,22 @@ img, video{max-width:100%;height:auto;display:block}
     <div class="container hero-card">
      <div>
       <h2>
-       A New Voice for Our Ward
+       Anne Anish — Candidate, Pune Municipal Corporation Elections 2025
       </h2>
       <p>
-       Anne Anish – A Voice for the People, A Vision for the Future.
+       A Voice for Our Ward — Dedicated to Cleanliness, Safety, Education, and Better Roads.
       </p>
       <div class="cta">
        <a class="btn" href="#contact">
-        Get in touch
+        Join Us
        </a>
-       <a class="btn ghost" href="#activities">
-        See recent work
+       <a class="btn ghost" href="#contact">
+        Contact
        </a>
       </div>
      </div>
      <div class="about-photo">
-      <img alt="Anne Anish portrait" loading="lazy" src="pic11.jpg?v=8" style="border-radius:18px; max-width:100%; height:auto; object-fit:contain;"/>
+      <img alt="Anne Anish portrait" loading="lazy" src="pic11.jpg?v=9" style="border-radius:18px; max-width:100%; height:auto; object-fit:contain;"/>
      </div>
     </div>
    </section>
@@ -250,133 +297,118 @@ Anne Anish – A Voice for the People, A Vision for the Future.
       <h3>
        Quick facts
       </h3>
-      <p>
-       • Education: B.Com.(Mumbai University), Certified Image Consultant - ICBI, International Certified Trainer - SQA (Scotland), Train the Trainer - NABET QCI (India), Master NLP Practitioner &amp; Trainer, Certified Leadership &amp; Life Coach, POSH Enabler (Workplace Safety), POCSO Torchbearer (Child Protection Advocate)
-      </p>
-      <p>
-       • Languages: Marathi, Hindi, English, Malayalam
-      </p>
-      <p>
-       <em>
-        LIMCA Book of Records National Record holder
-       </em>
-      </p>
-      <div>
-       <strong>
-        Priorities:
-       </strong>
-       <ul>
+      <div class="facts-box">
+       <ul class="facts">
         <li>
-         1. Clean &amp; Green Ward🌳
+         🎓 B.Com. (Mumbai University)
         </li>
         <li>
-         Zero-garbage streets, efficient waste management, more trees, and pollution-free environment.
+         📘 Certified Image Consultant (ICBI)
         </li>
         <li>
-         2. Better Roads &amp; Footpaths 🛣
+         🌍 International Certified Trainer - SQA (Scotland)
         </li>
         <li>
-         Well-maintained internal roads, pothole-free streets, and safe walkways for pedestrians.
+         🗣 Languages: Marathi, Hindi, English, Malayalam
         </li>
         <li>
-         3. Safe &amp; Reliable Water Supply 🚰
-        </li>
-        <li>
-         Access to clean drinking water and proper drainage systems to prevent flooding.
-        </li>
-        <li>
-         4. Women &amp; Child Safety First🛡
-        </li>
-        <li>
-         More CCTV surveillance, well-lit public spaces, and awareness programs on safety and protection.
-        </li>
-        <li>
-         5. Quality Education for Every Child🎓
-        </li>
-        <li>
-         Support for schools, digital learning access, scholarships, and skill-building programs.
-        </li>
-        <li>
-         6. Youth Empowerment 💡
-        </li>
-        <li>
-         Vocational training, sports facilities, and entrepreneurship support for young people.
-        </li>
-        <li>
-         7. Healthcare for All 🏥
-        </li>
-        <li>
-         Regular health camps, vaccination drives, and special care initiatives for senior citizens.
-        </li>
-        <li>
-         8. Better Public Amenities 🏞
-        </li>
-        <li>
-         Clean parks, upgraded community halls, safe playgrounds, and public toilets.
-        </li>
-        <li>
-         9. Transparent &amp; Accessible Governance 🤝
-        </li>
-        <li>
-         Monthly ward meetings, open communication channels, and quick grievance redressal.
-        </li>
-        <li>
-         10. People’s Participation in Development🗳
-        </li>
-        <li>
-         Encouraging residents’ involvement in decision-making to ensure inclusive growth.
+         🏅 LIMCA Book of Records holder
         </li>
        </ul>
+      </div>
+      <div class="priorities-box">
+       <div class="aside-priorities" style="margin-top:14px;">
+        <h4>
+         Key Priorities
+        </h4>
+        <div class="aside-prio-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;">
+         <div style="background:#fff;border:1px solid #eef3fb;padding:8px;border-radius:8px;">
+          <strong>
+           🛣 Better Roads
+          </strong>
+          <div style="font-size:13px;color:#556677;margin-top:6px;">
+           Pothole repairs &amp; safe walkways
+          </div>
+         </div>
+         <div style="background:#fff;border:1px solid #eef3fb;padding:8px;border-radius:8px;">
+          <strong>
+           🚰 Water Supply
+          </strong>
+          <div style="font-size:13px;color:#556677;margin-top:6px;">
+           Reliable clean water &amp; drainage
+          </div>
+         </div>
+         <div style="background:#fff;border:1px solid #eef3fb;padding:8px;border-radius:8px;">
+          <strong>
+           🎓 Education
+          </strong>
+          <div style="font-size:13px;color:#556677;margin-top:6px;">
+           Support to schools &amp; scholarships
+          </div>
+         </div>
+         <div style="background:#fff;border:1px solid #eef3fb;padding:8px;border-radius:8px;">
+          <strong>
+           🌳 Clean &amp; Green
+          </strong>
+          <div style="font-size:13px;color:#556677;margin-top:6px;">
+           Daily waste collection &amp; more trees
+          </div>
+         </div>
+         <div style="background:#fff;border:1px solid #eef3fb;padding:8px;border-radius:8px;">
+          <strong>
+           🛡 Safety
+          </strong>
+          <div style="font-size:13px;color:#556677;margin-top:6px;">
+           Lighting &amp; CCTV at hotspots
+          </div>
+         </div>
+         <div style="background:#fff;border:1px solid #eef3fb;padding:8px;border-radius:8px;">
+          <strong>
+           🛡 Women &amp; Child Safety First
+          </strong>
+          <div style="font-size:13px;color:#556677;margin-top:6px;">
+           More CCTV surveillance, well-lit public spaces, and awareness programs on safety and protection.
+          </div>
+         </div>
+         <div style="background:#fff;border:1px solid #eef3fb;padding:8px;border-radius:8px;">
+          <strong>
+           🏞 Better Public Amenities
+          </strong>
+          <div style="font-size:13px;color:#556677;margin-top:6px;">
+           Clean parks, upgraded community halls, safe playgrounds, and public toilets.
+          </div>
+         </div>
+         <div style="background:#fff;border:1px solid #eef3fb;padding:8px;border-radius:8px;">
+          <strong>
+           💡 Youth Empowerment
+          </strong>
+          <div style="font-size:13px;color:#556677;margin-top:6px;">
+           Vocational training, sports facilities, and entrepreneurship support for young people.
+          </div>
+         </div>
+         <div style="background:#fff;border:1px solid #eef3fb;padding:8px;border-radius:8px;">
+          <strong>
+           🗳 People’s Participation in Development
+          </strong>
+          <div style="font-size:13px;color:#556677;margin-top:6px;">
+           Encouraging residents’ involvement in decision-making to ensure inclusive growth.
+          </div>
+         </div>
+         <div class="prio-card">
+          <strong>
+           🤝 Transparent &amp; Accessible Governance
+          </strong>
+          <div class="prio-desc">
+           Monthly ward meetings, open communication channels, and quick grievance redressal.
+          </div>
+         </div>
+        </div>
+       </div>
       </div>
      </aside>
     </div>
    </section>
    <!-- CONTACT -->
-   <section id="contact">
-    <div class="container contact-grid">
-     <div class="card">
-      <h3>
-       Contact details
-      </h3>
-      <p>
-       📞 Phone:
-       <a href="tel:+919867690823">
-        +91 9867690823
-       </a>
-      </p>
-      <p>
-       ✉️ Email:
-       <a href="mailto:kenshoanne23@gmail.com">
-        kenshoanne23@gmail.com
-       </a>
-      </p>
-      #
-      <p>
-       📍 Ward Office: Royal Heights, Bhau Patil Road, Khadki, Pune
-      </p>
-      <div>
-       <span class="chip">
-        WhatsApp: +919867690823
-       </span>
-       <span class="chip">
-        <a href="https://www.facebook.com/anne.anish/" target="_blank">
-         Facebook
-        </a>
-       </span>
-       <span class="chip">
-        <a href="https://www.threads.com/@anne.anish?xmt=AQF0EGUiLHmnSQpq75WSbcby9OFTXn_H_9UZ0L5NtB8vuZk" target="_blank">
-         Instagram
-        </a>
-       </span>
-       <span class="chip">
-        <a href="https://x.com/AnneAnish" target="_blank">
-         X (Twitter)
-        </a>
-       </span>
-      </div>
-     </div>
-    </div>
-   </section>
    <!-- SOCIAL ACTIVITIES -->
    <section id="activities">
     <div class="container">
@@ -451,6 +483,51 @@ AAP leaders Annie Anish, Sheetal Kandelkar, Vikas Chavan, and Shankar Thorat, al
      </div>
     </div>
    </section>
+   <section id="contact">
+    <div class="container contact-grid">
+     <div class="card">
+      <h3>
+       Contact details
+      </h3>
+      <p>
+       📞 Phone:
+       <a href="tel:+919867690823">
+        +91 9867690823
+       </a>
+      </p>
+      <p>
+       ✉️ Email:
+       <a href="mailto:kenshoanne23@gmail.com">
+        kenshoanne23@gmail.com
+       </a>
+      </p>
+      #
+      <p>
+       📍 Ward Office: Royal Heights, Bhau Patil Road, Khadki, Pune
+      </p>
+      <div>
+       <span class="chip">
+        WhatsApp: +919867690823
+       </span>
+       <span class="chip">
+        <a href="https://www.facebook.com/anne.anish/" target="_blank">
+         Facebook
+        </a>
+       </span>
+       <span class="chip">
+        <a href="https://www.threads.com/@anne.anish?xmt=AQF0EGUiLHmnSQpq75WSbcby9OFTXn_H_9UZ0L5NtB8vuZk" target="_blank">
+         Instagram
+        </a>
+       </span>
+       <span class="chip">
+        <a href="https://x.com/AnneAnish" target="_blank">
+         X (Twitter)
+        </a>
+       </span>
+      </div>
+     </div>
+    </div>
+   </section>
    <!-- GALLERY -->
    <!-- VIDEOS -->
    <section id="videos">
@@ -462,22 +539,22 @@ AAP leaders Annie Anish, Sheetal Kandelkar, Vikas Chavan, and Shankar Thorat, al
       <div class="videos-grid">
        <figure>
         <video controls="True">
-         <source src="video1.mp4?v=8" type="video/mp4"/>
+         <source src="video1.mp4?v=9" type="video/mp4"/>
         </video>
        </figure>
        <figure>
         <video controls="True">
-         <source src="video2.mp4?v=8" type="video/mp4"/>
+         <source src="video2.mp4?v=9" type="video/mp4"/>
         </video>
        </figure>
        <figure>
         <video controls="True">
-         <source src="video3.mp4?v=8" type="video/mp4"/>
+         <source src="video3.mp4?v=9" type="video/mp4"/>
         </video>
        </figure>
        <figure>
         <video controls="True">
-         <source src="video4.mp4?v=8" type="video/mp4"/>
+         <source src="video4.mp4?v=9" type="video/mp4"/>
         </video>
        </figure>
       </div>
@@ -492,31 +569,31 @@ AAP leaders Annie Anish, Sheetal Kandelkar, Vikas Chavan, and Shankar Thorat, al
      <div class="gallery" id="grid">
       <!-- Replace src with your own images; these are unsplash demo URLs -->
       <figure>
-       <img alt="Community event" loading="lazy" src="pic7.jpg?v=8"/>
+       <img alt="Community event" loading="lazy" src="pic7.jpg?v=9"/>
       </figure>
       <figure>
-       <img alt="Residents meeting" loading="lazy" src="pic1.jpg?v=8"/>
+       <img alt="Residents meeting" loading="lazy" src="pic1.jpg?v=9"/>
       </figure>
       <figure>
-       <img alt="Clean-up drive" loading="lazy" src="pic2.jpg?v=8"/>
+       <img alt="Clean-up drive" loading="lazy" src="pic2.jpg?v=9"/>
       </figure>
       <figure>
-       <img alt="Workshop" loading="lazy" src="pic3.jpg?v=8"/>
+       <img alt="Workshop" loading="lazy" src="pic3.jpg?v=9"/>
       </figure>
       <figure>
-       <img alt="Lighting inspection" loading="lazy" src="pic4.jpg?v=8"/>
+       <img alt="Lighting inspection" loading="lazy" src="pic4.jpg?v=9"/>
       </figure>
       <figure>
-       <img alt="Press briefing" loading="lazy" src="pic5.jpg?v=8"/>
+       <img alt="Press briefing" loading="lazy" src="pic5.jpg?v=9"/>
       </figure>
       <figure>
-       <img alt="School outreach" loading="lazy" src="pic6.jpg?v=8"/>
+       <img alt="School outreach" loading="lazy" src="pic6.jpg?v=9"/>
       </figure>
       <figure>
-       <img alt="Community hall" loading="lazy" src="pic8.jpg?v=8"/>
+       <img alt="Community hall" loading="lazy" src="pic8.jpg?v=9"/>
       </figure>
       <figure>
-       <img alt="Community hall" loading="lazy" src="pic10.jpg?v=8"/>
+       <img alt="Community hall" loading="lazy" src="pic10.jpg?v=9"/>
       </figure>
      </div>
     </div>
