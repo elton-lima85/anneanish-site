@@ -617,6 +617,122 @@ https://www.punekarnews.in/a-tale-of-hope-punes-aap-members-and-community-join-f
      </div>
     </div>
    </section>
+   
+   <!-- INSTAGRAM -->
+<section id="instagram">
+  <div class="container">
+    <h3>Instagram — Latest posts</h3>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px">
+        <p style="margin:0;color:#556677">Anne is posting updates, rallies and short messages — click any item to open the Instagram post.</p>
+        <a class="btn" href="https://www.instagram.com/anne.anish/" target="_blank" rel="noopener" style="padding:8px 12px;border-radius:999px;font-size:14px">
+          Follow on Instagram
+        </a>
+      </div>
+
+      <div id="instaGrid" class="insta-grid" aria-live="polite"></div>
+
+      <!-- fallback message -->
+      <div id="instaEmpty" style="display:none;color:#556677;margin-top:12px">
+        No Instagram links configured yet. Add them in the <code>instagramLinks</code> array in the script below.
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Instagram section styles */
+  .insta-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:12px;
+    margin-top:8px;
+  }
+  .insta-card {
+    display:flex;
+    gap:12px;
+    align-items:center;
+    padding:10px;
+    border-radius:12px;
+    background:#fff;
+    border:1px solid #eef6ff;
+    box-shadow:var(--shadow-sm);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .insta-card:hover { transform:translateY(-4px); box-shadow:0 10px 24px rgba(0,0,0,.06); }
+  .insta-thumb {
+    width:84px;
+    height:84px;
+    border-radius:8px;
+    overflow:hidden;
+    flex:0 0 84px;
+    background:#f3f6fb;
+    display:grid;
+    place-items:center;
+  }
+  .insta-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+  .insta-meta { flex:1; min-width:0 }
+  .insta-meta h4 { margin:0 0 6px; font-size:15px; color:var(--bg); overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+  .insta-meta p { margin:0; font-size:13px; color:#556677; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical }
+  .insta-cta { margin-left:8px; white-space:nowrap; flex-shrink:0 }
+  .insta-cta a { display:inline-block; padding:8px 10px; border-radius:8px; border:1px solid #e6f0ff; background:#fff; font-weight:700; text-decoration:none; color:var(--bg); }
+  @media (max-width:600px){
+    .insta-card{gap:10px;padding:8px}
+    .insta-thumb{width:64px;height:64px;flex:0 0 64px}
+  }
+</style>
+
+<script>
+  // Replace these with the real Instagram post URLs and optional thumbnail/caption.
+  // thumbnail is optional; if absent, a simple Instagram glyph is shown.
+  const instagramLinks = [
+    // Example items — replace with real ones
+    { url: "https://www.instagram.com/reel/DPd1vFbAlDy/?igsh=MWEwODJ6MHMzM2prMA==", caption: "Khadki Speaks Out” — Students, parents, and citizens raise their voices against unsafe roads and the new railway gate opposite St. Thomas School. Hear Pune's residents speak on this growing safety concern."},
+    { url: "https://timesofindia.indiatimes.com/city/pune/garbage-sullies-every-corner-of-pune-say-citizens/articleshow/120878873.cms ", caption: "Garbage Sullies Every Corner of Pune, Say Citizens"}
+    { url: "https://www.instagram.com/reel/DPk8gqLDxo5/?igsh=MTd0dWxpdTZqYWhvOA==", caption: "Life gave me a second chance — and I've chosen to dedicate it to serving people."}
+  ];
+
+  (function renderInstagram(){
+    const grid = document.getElementById('instaGrid');
+    const empty = document.getElementById('instaEmpty');
+    if(!grid) return;
+    grid.innerHTML = '';
+    if(!instagramLinks || instagramLinks.length === 0){
+      empty.style.display = 'block';
+      return;
+    }
+    empty.style.display = 'none';
+
+    instagramLinks.forEach(item => {
+      const a = document.createElement('a');
+      a.href = item.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.className = 'insta-card';
+      a.innerHTML = `
+        <div class="insta-thumb" aria-hidden="true">
+          ${item.thumb ? `<img src="${item.thumb}" alt="Instagram post thumbnail"/>` : `<svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#F6F3F1"/><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" fill="#fff" opacity=".6"/><circle cx="12" cy="12" r="3.5" stroke="#d33" stroke-width="1.2"/><circle cx="17.5" cy="6.5" r="0.8" fill="#d33"/></svg>`}
+        </div>
+        <div class="insta-meta">
+          <h4>${escapeHtml(item.caption || 'Instagram post')}</h4>
+          <p>${escapeHtml((item.caption || '').replace(/https?:\/\/\S+/g,''))}</p>
+        </div>
+        <div class="insta-cta"><a href="${item.url}" target="_blank" rel="noopener">Open</a></div>
+      `;
+      grid.appendChild(a);
+    });
+  })();
+
+  // small helper to avoid HTML injection from captions (safe-guard)
+  function escapeHtml(s){
+    if(!s) return '';
+    return String(s).replace(/[&<>"']/g, function(m){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]); });
+  }
+</script>
+
+
+   
+   
    <section id="gallery">
     <div class="container">
      <h3>
